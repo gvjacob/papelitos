@@ -1,0 +1,10 @@
+page:
+  prompt:
+    - name
+  temples:
+    - template: ./templates/component.template
+      output: './src/routes/{{ name }}/index.js'
+    - template: ./templates/page.template
+      output: './src/pages/{{ kebab name }}.js'
+    - output: './src/routes/{{ name }}/styles.module.scss'
+

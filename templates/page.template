@@ -1,0 +1,3 @@
+import {{ name }} from '../routes/{{ name }}';
+
+export default {{ name }};
