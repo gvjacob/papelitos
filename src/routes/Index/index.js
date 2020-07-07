@@ -12,7 +12,7 @@ const Index = () => {
       </Head>
 
       <main>
-        <h1>papelitos</h1>
+        <h1 className={styles.headline}>papelitos</h1>
       </main>
     </div>
   );

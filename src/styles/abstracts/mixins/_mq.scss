@@ -1,0 +1,5 @@
+@mixin mq($breakpoint, $range: 'min', $dimension: width) {
+  @media (#{$range}-#{$dimension}: $breakpoint) {
+    @content;
+  }
+}

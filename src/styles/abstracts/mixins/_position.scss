@@ -1,0 +1,7 @@
+@mixin absolute($value) {
+  @include shorthander(absolute, $value);
+}
+
+@mixin fixed($value) {
+  @include shorthander(fixed, $value);
+}

@@ -1,0 +1,10 @@
+@mixin transition($property: all, $duration: $transition-duration, $func: $circ, $delay: null) {
+  $transitions: null;
+  @if type-of($property) != list {
+    $property: ($property);
+  }
+  @each $specifiedProperty in $property {
+    $transitions: append($transitions, $specifiedProperty $duration $delay $func, comma);
+  }
+  transition: $transitions;
+}

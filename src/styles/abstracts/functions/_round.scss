@@ -1,0 +1,14 @@
+@use 'sass:math';
+
+@function round($num) {
+  $ceil: math.ceil($num);
+  $floor: math.floor($num);
+  $ceil-diff: $ceil - ($num);
+  $floor-diff: ($num) - $floor;
+
+  @if ($ceil-diff < $floor-diff) {
+    @return $ceil;
+  } @else {
+    @return $floor;
+  }
+}

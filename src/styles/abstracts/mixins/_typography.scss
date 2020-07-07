@@ -1,0 +1,23 @@
+@mixin heading($scale: 4) {
+  $heading-scale: nth([22, 18, 16, 10, 6, 3, 1], $scale);
+
+  font-family: $ff-primary;
+  font-size: ms($heading-scale);
+  line-height: ms($heading-scale + 2);
+}
+
+@mixin body($scale: 3) {
+  $body-scale: nth([0, 1, 2, 6, 9], $scale);
+
+  font-family: $ff-secondary;
+  font-size: ms($body-scale);
+  line-height: ms($body-scale + 2);
+}
+
+@mixin ff-primary {
+  font-family: $ff-primary;
+}
+
+@mixin ff-secondary {
+  font-family: $ff-secondary;
+}

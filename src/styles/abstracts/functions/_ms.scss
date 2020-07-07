@@ -1,0 +1,27 @@
+@use 'sass:math';
+
+@function power($number, $exponent) {
+  $value: 1;
+
+  @if $exponent > 0 {
+    @for $i from 1 through $exponent {
+      $value: $value * $number;
+    }
+  } @else if $exponent < 0 {
+    @for $i from 1 through -$exponent {
+      $value: $value / $number;
+    }
+  }
+
+  @return $value;
+}
+
+@function ms($steps, $base: $ms-base, $ratio: $ms-ratio) {
+  $result: $base * power($ratio, $steps);
+
+  @if (math.compatible(1px, $base)) {
+    @return round($result);
+  } @else {
+    @return $result;
+  }
+}

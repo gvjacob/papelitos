@@ -1,0 +1,8 @@
+// Dependency of `mixins/shorthander`
+@function auto($value) {
+  @if $value == 'a' {
+    @return auto;
+  } @else {
+    @return $value;
+  }
+}

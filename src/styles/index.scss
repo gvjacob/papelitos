@@ -1,0 +1,28 @@
+@import 'reset';
+
+@include font-face($name: $ff-primary, $file: 'Canela-Light.otf');
+@include font-face($name: $ff-primary, $file: 'Canela-Bold.otf', $weight: bold);
+
+@include font-face($name: $ff-secondary, $file: 'GT America Regular.otf');
+@include font-face($name: $ff-secondary, $file: 'GT America Bold.otf', $weight: bold);
+
+html,
+body {
+  @include margin(0);
+  @include padding(0);
+}
+
+body {
+  @include ff-secondary;
+  @include body;
+
+  background-color: $background-color;
+  color: $body-color;
+
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}

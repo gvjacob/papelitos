@@ -1,0 +1,51 @@
+// Write less verbose media queries.
+// @param {Number(px) or String['max']} $bp-1 - Breakpoint value
+// @param {Number(px)} $bp-2 [null] - [Optional] Breakpoint value 2
+// @param {String['width', 'height']} $dimension ['width'] - Choose wich viewport dimension to respond to
+// @link http://codepen.io/upstatement/pen/vORJPZ See it on Codepen
+
+@mixin respond-to($bp-1, $bp-2: null, $dimension: width) {
+  @if $bp-1 == 'max' {
+    @media (max-#{$dimension}: $bp-2 - 1) {
+      @content;
+    }
+  } @else if $bp-2 == 'max' {
+    @media (max-#{$dimension}: $bp-1 - 1) {
+      @content;
+    }
+  } @else if $bp-2 == null {
+    @media (min-#{$dimension}: $bp-1) {
+      @content;
+    }
+  } @else {
+    @media (min-#{$dimension}: $bp-1) and (max-#{$dimension}: $bp-2 - 1) {
+      @content;
+    }
+  }
+}
+
+// Show at / until media queries
+// By default, hides content at a breakpoint.
+// @param {Number(px)} $breakpoint - The breakpoint for the media query
+// @param {Boolean} $display [false] - Whether or not to hide the element within the constructed conditions.
+@mixin show-at($breakpoint, $display: false) {
+  @if $display == false {
+    @include respond-to(max, $breakpoint) {
+      display: none;
+    }
+  }
+  @include respond-to($breakpoint) {
+    @content;
+  }
+}
+
+@mixin show-until($breakpoint, $display: false) {
+  @include respond-to($bp-1: 'max', $bp-2: $breakpoint) {
+    @content;
+  }
+  @include respond-to($breakpoint) {
+    @if $display == false {
+      display: none;
+    }
+  }
+}

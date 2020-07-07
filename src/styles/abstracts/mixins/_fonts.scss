@@ -1,0 +1,13 @@
+@mixin font-face($name, $file, $style: normal, $weight: 400) {
+  @font-face {
+    font-family: $name;
+    font-style: $style;
+    font-weight: $weight;
+    src: url('#{$file}');
+  }
+}
+
+@mixin font-size($step) {
+  font-size: ms($step);
+  line-height: ms($step + 2);
+}
