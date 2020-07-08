@@ -4,7 +4,11 @@
 @include font-face($name: $ff-primary, $file: 'Canela-Bold.otf', $weight: bold);
 
 @include font-face($name: $ff-secondary, $file: 'GT America Regular.otf');
-@include font-face($name: $ff-secondary, $file: 'GT America Bold.otf', $weight: bold);
+@include font-face(
+  $name: $ff-secondary,
+  $file: 'GT America Bold.otf',
+  $weight: bold
+);
 
 html,
 body {
@@ -16,8 +20,7 @@ body {
   @include ff-secondary;
   @include body;
 
-  background-color: $background-color;
-  color: $body-color;
+  color: $hex-secondary;
 
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
