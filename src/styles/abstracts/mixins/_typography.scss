@@ -7,7 +7,7 @@
   line-height: ms($heading-scale + 2);
 }
 
-@mixin body($scale: 3) {
+@mixin body($scale: 2) {
   $body-scale: nth([0, 1, 2, 6, 9], $scale);
 
   font-family: $ff-secondary;
