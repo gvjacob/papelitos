@@ -21,6 +21,7 @@ body {
   @include body;
 
   color: $hex-secondary;
+  background-color: $hex-background;
 
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;

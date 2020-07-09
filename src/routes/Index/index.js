@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Head from 'next/head';
 
 import styles from './styles.module.scss';
 
 const Index = () => {
   return (
-    <div className="container">
+    <Fragment>
       <Head>
         <title>papelitos | pieces of paper</title>
         <link rel="icon" href="/favicon.ico" />
@@ -13,8 +13,9 @@ const Index = () => {
 
       <main>
         <h1 className={styles.headline}>papelitos</h1>
+        <p>pieces of paper, a game</p>
       </main>
-    </div>
+    </Fragment>
   );
 };
 
