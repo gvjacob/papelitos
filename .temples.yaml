@@ -1,3 +1,11 @@
+component:
+  prompt:
+    - name
+  temples:
+    - template: ./templates/component.template
+      output: './src/components/{{ name }}/index.js'
+    - output: './src/components/{{ name }}/styles.module.scss'
+
 page:
   prompt:
     - name
@@ -7,4 +15,3 @@ page:
     - template: ./templates/page.template
       output: './src/pages/{{ kebab name }}.js'
     - output: './src/routes/{{ name }}/styles.module.scss'
-

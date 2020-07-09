@@ -1,0 +1,14 @@
+.hero {
+  @include flex(column, center, center);
+  @include size(100%, 100vh);
+}
+
+.image {
+  margin-bottom: $sp-sm;
+  width: $sp-xxl;
+}
+
+.headline {
+  @include heading(3);
+  margin-bottom: $sp-xs;
+}
