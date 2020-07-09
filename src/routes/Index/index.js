@@ -11,7 +11,8 @@ const Index = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
+      <main className={styles.main}>
+        <img className={styles.image} src="/paperplane.png" />
         <h1 className={styles.headline}>papelitos</h1>
         <p>pieces of paper, a game</p>
       </main>
