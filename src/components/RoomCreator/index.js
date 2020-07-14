@@ -21,32 +21,38 @@ const RoomCreator = () => {
 
   return (
     <section>
-      <form onSubmit={formik.handleSubmit}>
-        <div>
-          <p>Link to a conference call. Use your preferred software.</p>
-          <input
-            name="conferenceLink"
-            onChange={formik.handleChange}
-            placeholder="https://zoom.us/meeting-id"
-          />
-          <span>or, add later</span>
+      <form className={styles.form} onSubmit={formik.handleSubmit}>
+        <div className={styles.blocks}>
+          <div>
+            <p>Link to a conference call. Use your preferred software.</p>
+            <input
+              name="conferenceLink"
+              onChange={formik.handleChange}
+              placeholder="https://zoom.us/meeting-id"
+            />
+            <span>or, add later</span>
+          </div>
+
+          <div>
+            <p>Set the time limit for each drawing round</p>
+            <Cleave
+              className={styles.durationInput}
+              name="secondsPerRound"
+              options={{ time: true, timePattern: ['m', 's'] }}
+              onChange={(e) => {
+                formik.setFieldValue(
+                  'secondsPerRound',
+                  toSeconds(e.target.rawValue),
+                );
+              }}
+              placeholder="1:00"
+            />
+          </div>
         </div>
 
-        <div>
-          <p>Set the time limit for each drawing round</p>
-          <Cleave
-            name="secondsPerRound"
-            options={{ time: true, timePattern: ['m', 's'] }}
-            onChange={(e) => {
-              formik.setFieldValue(
-                'secondsPerRound',
-                toSeconds(e.target.rawValue),
-              );
-            }}
-          />
-        </div>
-
-        <button type="submit">Create Room</button>
+        <button className={styles.submit} type="submit">
+          Create Room
+        </button>
       </form>
     </section>
   );

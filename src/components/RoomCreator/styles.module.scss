@@ -1,0 +1,38 @@
+.form {
+  @include flex(column, center, center);
+  margin: auto;
+  width: fit-content;
+}
+
+.blocks {
+  @include flex(row, center);
+
+  div {
+    @include flex(column);
+    @include padding($sp-sm);
+
+    width: 40%;
+
+    input {
+      @include padding($sp-xs);
+      @include margin($sp-xs -#{$sp-xs});
+      @include body;
+      @include round-border;
+    }
+  }
+}
+
+.durationInput {
+  text-align: center;
+}
+
+.submit {
+  @include padding($sp-xxs $sp-xs);
+  @include round-border;
+  @include body;
+
+  background-color: $hex-primary;
+  border: none;
+  color: $hex-tertiary;
+  font-weight: bold;
+}

@@ -3,3 +3,7 @@
   border-style: $style;
   border-width: $value;
 }
+
+@mixin round-border {
+  border-radius: 8px;
+}
