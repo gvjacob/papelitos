@@ -15,7 +15,7 @@ const Index = () => {
 
       <main>
         <Hero />
-        <RoomCreator />
+        <RoomCreator className={styles.roomCreator} />
       </main>
     </Fragment>
   );

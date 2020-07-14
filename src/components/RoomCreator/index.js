@@ -6,7 +6,7 @@ import { useFormik } from 'formik';
 import { toSeconds } from '../../utils';
 import styles from './styles.module.scss';
 
-const RoomCreator = () => {
+const RoomCreator = ({ className }) => {
   const formik = useFormik({
     initialValues: {
       secondsPerRound: 60,
@@ -20,7 +20,7 @@ const RoomCreator = () => {
   });
 
   return (
-    <section>
+    <section className={className}>
       <form className={styles.form} onSubmit={formik.handleSubmit}>
         <div className={styles.blocks}>
           <div>
