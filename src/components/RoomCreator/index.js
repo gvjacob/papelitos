@@ -1,7 +1,6 @@
 import React from 'react';
 import wretch from 'wretch';
 import Cleave from 'cleave.js/react';
-import immer from 'immer';
 import { useFormik } from 'formik';
 
 import { toSeconds } from '../../utils';
@@ -41,7 +40,7 @@ const RoomCreator = () => {
             onChange={(e) => {
               formik.setFieldValue(
                 'secondsPerRound',
-                toSeconds(e.target.rawValue)
+                toSeconds(e.target.rawValue),
               );
             }}
           />

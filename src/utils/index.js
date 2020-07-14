@@ -1,4 +1,3 @@
-import pms from 'pretty-ms';
 import { camelCase, isEmpty } from 'lodash';
 
 /**
