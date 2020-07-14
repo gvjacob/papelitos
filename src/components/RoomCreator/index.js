@@ -1,0 +1,56 @@
+import React from 'react';
+import wretch from 'wretch';
+import Cleave from 'cleave.js/react';
+import immer from 'immer';
+import { useFormik } from 'formik';
+
+import { toSeconds } from '../../utils';
+import styles from './styles.module.scss';
+
+const RoomCreator = () => {
+  const formik = useFormik({
+    initialValues: {
+      secondsPerRound: 60,
+    },
+
+    onSubmit: (values) => {
+      wretch('/api/room')
+        .post(values)
+        .res((response) => console.log(response));
+    },
+  });
+
+  return (
+    <section>
+      <form onSubmit={formik.handleSubmit}>
+        <div>
+          <p>Link to a conference call. Use your preferred software.</p>
+          <input
+            name="conferenceLink"
+            onChange={formik.handleChange}
+            placeholder="https://zoom.us/meeting-id"
+          />
+          <span>or, add later</span>
+        </div>
+
+        <div>
+          <p>Set the time limit for each drawing round</p>
+          <Cleave
+            name="secondsPerRound"
+            options={{ time: true, timePattern: ['m', 's'] }}
+            onChange={(e) => {
+              formik.setFieldValue(
+                'secondsPerRound',
+                toSeconds(e.target.rawValue)
+              );
+            }}
+          />
+        </div>
+
+        <button type="submit">Create Room</button>
+      </form>
+    </section>
+  );
+};
+
+export default RoomCreator;

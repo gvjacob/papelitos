@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import Head from 'next/head';
 
-import Hero from '../../components/Hero';
+import { Hero, RoomCreator } from '../../components';
 
 import styles from './styles.module.scss';
 
@@ -15,6 +15,7 @@ const Index = () => {
 
       <main>
         <Hero />
+        <RoomCreator />
       </main>
     </Fragment>
   );
