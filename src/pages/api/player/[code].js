@@ -13,20 +13,20 @@ function getPlayerNames(players = []) {
 /**
  * Create new player given current room
  */
-function createPlayer(room) {
+function createPlayer(room, id) {
   const { players } = room;
 
-  const id = v4();
   const name = createUniquePlayerName(getPlayerNames(players));
   const admin = isEmpty(players);
   const color = randomColor();
 
-  return { id, name, admin, color };
+  return { id: id || v4(), name, admin, color };
 }
 
 export default handle({
   POST: async (req, res) => {
     const { code } = req.query;
+    const { id } = req.body;
 
     const doc = firebase
       .firestore()
@@ -39,12 +39,18 @@ export default handle({
       return res.status(404).end();
     }
 
-    const player = createPlayer(room);
+    const playerFromRoom = room.players.find((player) => player.id === id);
 
-    await doc.update({
-      players: [...room.players, player],
-    });
+    if (isEmpty(playerFromRoom)) {
+      const player = createPlayer(room, id);
 
-    await res.status(200).json(player);
+      await doc.update({
+        players: [...room.players, player],
+      });
+
+      return res.status(200).json(player);
+    }
+
+    res.status(200).json(playerFromRoom);
   },
 });
