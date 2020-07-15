@@ -1,0 +1,8 @@
+.room {
+  @include flex(column, center, center);
+}
+
+.headline {
+  @include heading(4);
+  @include margin($sp-sm);
+}

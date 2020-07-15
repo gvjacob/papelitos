@@ -1,3 +1,7 @@
 .roomCreator {
   @include margin($sp-md x);
 }
+
+.footer {
+  margin-top: $sp-xl;
+}

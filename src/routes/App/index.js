@@ -4,12 +4,7 @@ import { Footer } from '../../components';
 import styles from './styles.module.scss';
 
 function App({ Component, pageProps }) {
-  return (
-    <Fragment>
-      <Component {...pageProps} />
-      <Footer className={styles.footer} />
-    </Fragment>
-  );
+  return <Component {...pageProps} />;
 }
 
 export default App;

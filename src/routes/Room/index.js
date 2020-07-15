@@ -2,6 +2,7 @@ import React from 'react';
 import Error from 'next/error';
 import { useRouter } from 'next/router';
 
+import { Papelitos } from '../../components';
 import wretch from '../../utils/wretch';
 import styles from './styles.module.scss';
 
@@ -10,7 +11,11 @@ const Room = ({ room }) => {
     return <Error statusCode={404} />;
   }
 
-  return <section>{JSON.stringify(room, null, 2)}</section>;
+  return (
+    <section className={styles.room}>
+      <Papelitos className={styles.headline} />
+    </section>
+  );
 };
 
 export async function getServerSideProps(context) {
