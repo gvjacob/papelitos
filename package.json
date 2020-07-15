@@ -15,11 +15,13 @@
     "formik": "^2.1.4",
     "lodash": "^4.17.15",
     "next": "9.4.4",
+    "nookies": "^2.3.2",
     "peculiarity": "^0.4.3",
     "randanimal": "^1.0.4",
     "randomcolor": "^0.6.2",
     "react": "16.13.1",
     "react-dom": "16.13.1",
+    "react-firebase-hooks": "^2.2.0",
     "sass": "^1.26.10",
     "uuid": "^8.2.0",
     "wretch": "^1.7.2"

@@ -2,10 +2,10 @@ import * as firebase from 'firebase';
 import 'firebase/firestore';
 
 const config = {
-  apiKey: process.env.FIREBASE_API_KEY,
-  appId: process.env.FIREBASE_APP_ID,
-  projectId: process.env.FIREBASE_PROJECT_ID,
-  databaseURL: process.env.FIREBASE_DATABASE_URL,
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  databaseURL: process.env.NEXT_PUBLIC_FIREBASE_DATABASE_URL,
 };
 
 // Initialize or provide existing app
