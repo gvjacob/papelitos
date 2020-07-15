@@ -1,21 +1,25 @@
 import React from 'react';
-import wretch from 'wretch';
+import { useRouter } from 'next/router';
 import Cleave from 'cleave.js/react';
 import { useFormik } from 'formik';
 
 import { toSeconds } from '../../utils';
+import wretch from '../../utils/wretch';
 import styles from './styles.module.scss';
 
 const RoomCreator = ({ className }) => {
+  const router = useRouter();
+
   const formik = useFormik({
     initialValues: {
       secondsPerRound: 60,
     },
 
     onSubmit: (values) => {
-      wretch('/api/room')
+      wretch
+        .url('/room')
         .post(values)
-        .res((response) => console.log(response));
+        .json(({ code }) => router.push(`/room/${code}`));
     },
   });
 

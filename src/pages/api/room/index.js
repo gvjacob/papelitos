@@ -12,6 +12,6 @@ export default handle({
     const roomId = formatDocumentId(v4());
     await firebase.firestore().collection('rooms').doc(roomId).set(room);
 
-    res.status(200).end();
+    res.status(200).json({ code: roomId });
   },
 });
