@@ -24,3 +24,11 @@ export function toSeconds(colonFormattedTime) {
 
   return minutes * 60 + seconds;
 }
+
+/**
+ * Get random value from given list
+ */
+export function getRandomly(values) {
+  const { floor, random } = Math;
+  return values[floor(random() * values.length)];
+}

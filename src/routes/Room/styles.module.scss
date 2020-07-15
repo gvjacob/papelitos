@@ -5,4 +5,6 @@
 .headline {
   @include heading(4);
   @include margin($sp-sm);
+  margin-bottom: $sp-lg;
 }
+

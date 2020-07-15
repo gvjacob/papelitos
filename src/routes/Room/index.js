@@ -2,7 +2,7 @@ import React from 'react';
 import Error from 'next/error';
 import { useRouter } from 'next/router';
 
-import { Papelitos } from '../../components';
+import { Papelitos, PapelitoInput } from '../../components';
 import wretch from '../../utils/wretch';
 import styles from './styles.module.scss';
 
@@ -14,6 +14,7 @@ const Room = ({ room }) => {
   return (
     <section className={styles.room}>
       <Papelitos className={styles.headline} />
+      <PapelitoInput />
     </section>
   );
 };

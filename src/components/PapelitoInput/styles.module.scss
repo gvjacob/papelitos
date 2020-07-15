@@ -1,0 +1,27 @@
+.form {
+  @include flex(row, center);
+  position: relative;
+  width: 60%;
+
+  input {
+    @include heading(4);
+    @include padding(x $sp-xxs);
+
+    background-color: transparent;
+    border-bottom: 2px solid $hex-primary;
+    color: $hex-secondary;
+    width: 100%;
+
+    &::placeholder {
+      opacity: 0.4;
+    }
+  }
+
+  button {
+    @include body(3);
+    @include absolute(50% 0 x x);
+
+    color: $hex-primary;
+    transform: translateY(-50%);
+  }
+}
