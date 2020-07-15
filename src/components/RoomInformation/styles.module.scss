@@ -1,0 +1,30 @@
+.roomInformation {
+  @include padding($sp-sm);
+  @include flex;
+
+  background-color: $hex-tertiary;
+  width: 100%;
+}
+
+.code {
+  span {
+    @include body;
+    color: $hex-gray;
+  }
+
+  h2 {
+    @include heading;
+    margin-top: $sp-xxs;
+  }
+}
+
+.labels {
+  margin-left: $sp-md;
+
+  .label {
+    span:first-child {
+      color: $hex-gray;
+    }
+  }
+}
+

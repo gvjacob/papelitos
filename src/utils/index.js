@@ -1,4 +1,5 @@
 import { camelCase, isEmpty } from 'lodash';
+import pms from 'pretty-ms';
 
 /**
  * Pulls the first five characters from
@@ -23,6 +24,10 @@ export function toSeconds(colonFormattedTime) {
   const seconds = toInteger(colonFormattedTime.substring(2));
 
   return minutes * 60 + seconds;
+}
+
+export function toColon(seconds) {
+  return pms(seconds * 1000, { colonNotation: true });
 }
 
 /**

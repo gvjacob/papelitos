@@ -17,6 +17,7 @@
     "next": "9.4.4",
     "nookies": "^2.3.2",
     "peculiarity": "^0.4.3",
+    "pretty-ms": "^7.0.0",
     "randanimal": "^1.0.4",
     "randomcolor": "^0.6.2",
     "react": "16.13.1",
