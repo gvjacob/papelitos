@@ -1,9 +1,9 @@
 import firebase from '../../../firebase';
-import handle from '../../../utils/handle';
+import { handle } from '../../../utils/api';
 
 export default handle({
   GET: async (req, res) => {
-    const code = req.query.code;
+    const { code } = req.query;
 
     const doc = await firebase
       .firestore()
