@@ -1,18 +1,16 @@
 import React from 'react';
 import { If } from 'peculiarity/react';
-import { useDocumentData } from 'react-firebase-hooks/firestore';
 import Error from 'next/error';
 import { useRouter } from 'next/router';
 import { parseCookies, setCookie } from 'nookies';
 
 import { Papelitos, PapelitoInput } from '../../components';
-import firebase from '../../firebase';
+import { useRoom } from '../../hooks';
 import wretch from '../../utils/wretch';
 import styles from './styles.module.scss';
 
 const Room = ({ playerId, code }) => {
-  const roomRef = firebase.firestore().collection('rooms').doc(code);
-  const [room, loading, error] = useDocumentData(roomRef);
+  const [room, loading, error] = useRoom(code);
 
   if (error) {
     return <Error statusCode={404} />;
