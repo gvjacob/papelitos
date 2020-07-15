@@ -1,9 +1,8 @@
 import { v4 } from 'uuid';
 import { isEmpty, create } from 'lodash';
-import { firestore } from 'firebase-admin';
 import randomColor from 'randomcolor';
 
-import firebase from '../../../firebase';
+import { firestore } from '../../../firebase';
 import { handle, createUniquePlayerName } from '../../../utils/api';
 
 function getPlayerNames(players = []) {
@@ -28,10 +27,7 @@ export default handle({
     const { code } = req.query;
     const { id } = req.body;
 
-    const doc = firebase
-      .firestore()
-      .collection('rooms')
-      .doc(code.toUpperCase());
+    const doc = firestore.collection('rooms').doc(code.toUpperCase());
 
     const room = (await doc.get()).data();
 

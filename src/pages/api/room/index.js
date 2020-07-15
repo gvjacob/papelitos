@@ -1,7 +1,7 @@
 import { pick } from 'lodash';
 import { v4 } from 'uuid';
 
-import firebase from '../../../firebase';
+import { firestore } from '../../../firebase';
 import { handle } from '../../../utils/api';
 import { formatDocumentId } from '../../../utils';
 
@@ -18,7 +18,7 @@ export default handle({
     const room = { ...DEFAULT_ROOM, ...configuration };
 
     const roomId = formatDocumentId(v4());
-    await firebase.firestore().collection('rooms').doc(roomId).set(room);
+    await firestore.collection('rooms').doc(roomId).set(room);
 
     res.status(200).json({ code: roomId });
   },

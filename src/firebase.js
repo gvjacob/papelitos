@@ -9,6 +9,8 @@ const config = {
 };
 
 // Initialize or provide existing app
-export default firebase.apps.length
+const app = firebase.apps.length
   ? firebase.app()
   : firebase.initializeApp(config);
+
+export const firestore = app.firestore();
