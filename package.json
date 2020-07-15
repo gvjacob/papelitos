@@ -17,6 +17,7 @@
     "next": "9.4.4",
     "peculiarity": "^0.4.3",
     "randanimal": "^1.0.4",
+    "randomcolor": "^0.6.2",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "sass": "^1.26.10",

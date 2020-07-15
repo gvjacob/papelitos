@@ -1,11 +1,12 @@
 import { v4 } from 'uuid';
 import { isEmpty, create } from 'lodash';
 import { firestore } from 'firebase-admin';
+import randomColor from 'randomcolor';
 
 import firebase from '../../../firebase';
 import { handle, createUniquePlayerName } from '../../../utils/api';
 
-function getPlayerNames(players) {
+function getPlayerNames(players = []) {
   return players.map(({ name }) => name);
 }
 
@@ -18,8 +19,9 @@ function createPlayer(room) {
   const id = v4();
   const name = createUniquePlayerName(getPlayerNames(players));
   const admin = isEmpty(players);
+  const color = randomColor();
 
-  return { id, name, admin };
+  return { id, name, admin, color };
 }
 
 export default handle({
