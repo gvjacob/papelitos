@@ -1,5 +1,7 @@
 import React from 'react';
+import { get } from 'lodash';
 import { If } from 'peculiarity/react';
+import Head from 'next/head';
 import Error from 'next/error';
 import { useRouter } from 'next/router';
 import { parseCookies, setCookie } from 'nookies';
@@ -18,11 +20,14 @@ const Room = ({ playerId, code }) => {
 
   return (
     <If value={!loading}>
+      <Head>
+        <title>papelitos | {get(room, 'code')}</title>
+      </Head>
       <main className={styles.room}>
         <Papelitos className={styles.headline} />
         <PapelitoInput />
       </main>
-      <RoomInformation room={room} />
+      <RoomInformation playerId={playerId} room={room} />
     </If>
   );
 };

@@ -1,9 +1,14 @@
 .roomInformation {
   @include padding($sp-sm);
-  @include flex;
+  @include flex(row, space-between);
 
   background-color: $hex-tertiary;
+  padding-bottom: $sp-xs;
   width: 100%;
+}
+
+.information {
+  @include flex;
 }
 
 .code {
@@ -27,4 +32,3 @@
     }
   }
 }
-
