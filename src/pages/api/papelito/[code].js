@@ -6,7 +6,6 @@ import { handle } from '../../../utils/api';
 
 export default handle({
   POST: async (req, res) => {
-    console.log(req.query);
     const { code } = req.query;
     const { id, papelito } = req.body;
 

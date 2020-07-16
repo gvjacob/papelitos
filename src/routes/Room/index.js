@@ -31,7 +31,7 @@ const Room = ({ playerId, code }) => {
       <main className={styles.room}>
         <Papelitos className={styles.headline} />
         <PapelitoInput playerId={playerId} room={room} />
-        <PapelitoRound />
+        <PapelitoRound playerId={playerId} room={room} />
       </main>
       <RoomInformation playerId={playerId} room={room} />
     </If>

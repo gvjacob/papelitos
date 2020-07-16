@@ -1,0 +1,24 @@
+.papelitoRound {
+  @include flex(row, space-between);
+  @include margin($sp-xs x);
+  width: 60%;
+}
+
+.papelitoCount {
+  @include flex(row, flex-start, center);
+
+  .count {
+    @include flex(row, center, center);
+    @include size(40px);
+
+    background-color: $hex-primary;
+    border-radius: 100%;
+    color: $hex-tertiary;
+    font-weight: bold;
+    margin-right: $sp-xxs;
+
+    &.neutral {
+      background-color: $hex-secondary;
+    }
+  }
+}

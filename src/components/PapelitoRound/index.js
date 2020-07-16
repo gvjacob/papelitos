@@ -1,8 +1,42 @@
 import React from 'react';
+import { classNames as cn } from 'peculiarity';
+import { partition } from 'lodash';
+
 import styles from './styles.module.scss';
 
-const PapelitoRound = () => {
-  return null;
-}
+const PapelitoCount = ({ className, papelitos, text, neutral }) => {
+  return (
+    <div className={styles.papelitoCount}>
+      <div className={cn(styles.count, neutral && styles.neutral)}>
+        {papelitos.length}
+      </div>{' '}
+      {text}
+    </div>
+  );
+};
+
+const PapelitoRound = ({ className, room, playerId }) => {
+  const { papelitos } = room;
+
+  const playerPapelitos = papelitos.filter(
+    ({ createdBy }) => playerId === createdBy
+  );
+
+  const playerPapelitosString = playerPapelitos.reduce(
+    (acc, { papelito }, i) => `${acc}${i !== 0 ? ', ' : ''}${papelito}`,
+    ''
+  );
+
+  return (
+    <section className={styles.papelitoRound}>
+      <PapelitoCount
+        papelitos={playerPapelitos}
+        text={playerPapelitosString}
+        neutral
+      />
+      <PapelitoCount papelitos={papelitos} text={'total papelitos'} />
+    </section>
+  );
+};
 
 export default PapelitoRound;
