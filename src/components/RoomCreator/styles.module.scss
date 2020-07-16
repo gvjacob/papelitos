@@ -27,12 +27,5 @@
 }
 
 .submit {
-  @include padding($sp-xxs $sp-xs);
-  @include round-border;
-  @include body;
-
-  background-color: $hex-primary;
-  border: none;
-  color: $hex-tertiary;
-  font-weight: bold;
+  @include button;
 }

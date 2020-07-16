@@ -17,14 +17,15 @@ const PapelitoCount = ({ className, papelitos, text, neutral }) => {
 
 const PapelitoRound = ({ className, room, playerId }) => {
   const { papelitos } = room;
+  const availablePapelitos = papelitos.filter(({ scoredBy }) => !scoredBy);
 
-  const playerPapelitos = papelitos.filter(
-    ({ createdBy }) => playerId === createdBy
+  const playerPapelitos = availablePapelitos.filter(
+    ({ createdBy }) => playerId === createdBy,
   );
 
   const playerPapelitosString = playerPapelitos.reduce(
     (acc, { papelito }, i) => `${acc}${i !== 0 ? ', ' : ''}${papelito}`,
-    ''
+    '',
   );
 
   return (
@@ -34,7 +35,8 @@ const PapelitoRound = ({ className, room, playerId }) => {
         text={playerPapelitosString}
         neutral
       />
-      <PapelitoCount papelitos={papelitos} text={'total papelitos'} />
+      <button className={styles.startRound}>Start round</button>
+      <PapelitoCount papelitos={availablePapelitos} text={'total papelitos'} />
     </section>
   );
 };

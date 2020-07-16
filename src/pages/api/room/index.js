@@ -9,6 +9,7 @@ const DEFAULT_ROOM = {
   conferenceLink: '',
   secondsPerRound: 60,
   papelitos: [],
+  originalPapelitos: [],
   players: [],
 };
 
