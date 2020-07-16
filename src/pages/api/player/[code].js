@@ -1,5 +1,5 @@
 import { v4 } from 'uuid';
-import { isEmpty, create } from 'lodash';
+import { isEmpty } from 'lodash';
 import randomColor from 'randomcolor';
 
 import { firestore } from '../../../firebase';
