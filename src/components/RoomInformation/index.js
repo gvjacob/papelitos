@@ -3,6 +3,7 @@ import { If } from 'peculiarity/react';
 import { classNames as cn } from 'peculiarity';
 
 import Player from './Player';
+import OtherPlayers from './OtherPlayers';
 import { toColon } from '../../utils';
 import styles from './styles.module.scss';
 
@@ -38,7 +39,8 @@ const RoomInformation = ({ className, playerId, room }) => {
         </div>
       </div>
       <div>
-        <Player player={player} />
+        <Player player={player} room={room} />
+        <OtherPlayers players={room.players} />
       </div>
     </footer>
   );

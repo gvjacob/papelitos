@@ -28,7 +28,6 @@ export default handle({
     const { id } = req.body;
 
     const doc = firestore.collection('rooms').doc(code.toUpperCase());
-
     const room = (await doc.get()).data();
 
     if (isEmpty(room)) {
@@ -48,5 +47,26 @@ export default handle({
     }
 
     res.status(200).json(playerFromRoom);
+  },
+  PUT: async (req, res) => {
+    const { code } = req.query;
+    const { id, ...reqPlayer } = req.body;
+
+    const doc = firestore.collection('rooms').doc(code.toUpperCase());
+    const room = (await doc.get()).data();
+
+    if (isEmpty(room)) {
+      return res.status(404).end();
+    }
+
+    const updatedPlayers = room.players.map((player) => {
+      return player.id === id ? { ...player, ...reqPlayer } : player;
+    });
+
+    await doc.update({
+      players: updatedPlayers,
+    });
+
+    res.status(200).end();
   },
 });
