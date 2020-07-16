@@ -6,7 +6,12 @@ import Error from 'next/error';
 import { useRouter } from 'next/router';
 import { parseCookies, setCookie } from 'nookies';
 
-import { Papelitos, PapelitoInput, RoomInformation } from '../../components';
+import {
+  Papelitos,
+  PapelitoInput,
+  PapelitoRound,
+  RoomInformation,
+} from '../../components';
 import { useRoom } from '../../hooks';
 import wretch from '../../utils/wretch';
 import styles from './styles.module.scss';
@@ -25,7 +30,8 @@ const Room = ({ playerId, code }) => {
       </Head>
       <main className={styles.room}>
         <Papelitos className={styles.headline} />
-        <PapelitoInput />
+        <PapelitoInput playerId={playerId} room={room} />
+        <PapelitoRound />
       </main>
       <RoomInformation playerId={playerId} room={room} />
     </If>
