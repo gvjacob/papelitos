@@ -7,3 +7,4 @@ export { default as Papelitos } from './Papelitos';
 export { default as PapelitoInput } from './PapelitoInput';
 export { default as PapelitoRound } from './PapelitoRound';
 export { default as RoomInformation } from './RoomInformation';
+export { default as Scoreboard } from './Scoreboard';

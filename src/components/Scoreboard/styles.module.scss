@@ -1,0 +1,9 @@
+.scoreboard {
+  @include flex(row, center, center);
+  @include size(100%);
+}
+
+.paperplane {
+  @include size(25%);
+  height: 100%;
+}

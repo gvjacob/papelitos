@@ -10,6 +10,7 @@ import {
   Papelitos,
   PapelitoInput,
   PapelitoRound,
+  Scoreboard,
   RoomInformation,
 } from '../../components';
 import { useRoom } from '../../hooks';
@@ -32,6 +33,7 @@ const Room = ({ playerId, code }) => {
         <Papelitos className={styles.headline} />
         <PapelitoInput playerId={playerId} room={room} />
         <PapelitoRound playerId={playerId} room={room} />
+        <Scoreboard playerId={playerId} room={room} />
       </main>
       <RoomInformation playerId={playerId} room={room} />
     </If>
