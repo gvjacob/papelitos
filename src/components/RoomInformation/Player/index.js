@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { useFormik } from 'formik';
 
+import { Avatar } from '../..';
 import wretch from '../../../utils/wretch';
 import styles from './styles.module.scss';
 
 const Player = ({ className, player, room }) => {
-  const { color } = player;
-
   const formik = useFormik({
     initialValues: {
       name: player.name,
@@ -22,7 +21,7 @@ const Player = ({ className, player, room }) => {
 
   return (
     <div className={styles.player}>
-      <div className={styles.avatar} style={{ backgroundColor: color }} />
+      <Avatar className={styles.avatar} player={player} />
       <div className={styles.name}>
         <span>You are</span>
 

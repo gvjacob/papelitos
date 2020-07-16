@@ -1,4 +1,5 @@
 import React from 'react';
+import { partition } from 'lodash';
 import { If } from 'peculiarity/react';
 import { classNames as cn } from 'peculiarity';
 
@@ -21,7 +22,10 @@ const Label = ({ label, value }) => {
 
 const RoomInformation = ({ className, playerId, room }) => {
   const { code } = room;
-  const player = room.players.find(({ id }) => id === playerId);
+  const [[player], party] = partition(
+    room.players,
+    ({ id }) => id === playerId,
+  );
 
   return (
     <footer className={cn(styles.roomInformation, className)}>
@@ -46,11 +50,10 @@ const RoomInformation = ({ className, playerId, room }) => {
       </div>
       <div>
         <Player player={player} room={room} />
-        <OtherPlayers players={room.players} />
+        <OtherPlayers players={party} />
       </div>
     </footer>
   );
 };
 
 export default RoomInformation;
-
