@@ -46,7 +46,7 @@ export async function getServerSideProps(context) {
 
   return {
     props: {
-      playerId,
+      playerId: id,
       code,
     },
   };
