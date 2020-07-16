@@ -14,7 +14,7 @@ import styles from './styles.module.scss';
 const Room = ({ playerId, code }) => {
   const [room, loading, error] = useRoom(code);
 
-  if (error) {
+  if (!playerId || error) {
     return <Error statusCode={404} />;
   }
 
