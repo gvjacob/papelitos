@@ -34,3 +34,12 @@
     }
   }
 }
+
+.party {
+  @include flex;
+  align-items: center;
+
+  .player {
+    margin-right: $sp-xs;
+  }
+}

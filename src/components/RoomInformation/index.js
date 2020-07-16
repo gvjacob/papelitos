@@ -4,7 +4,7 @@ import { If } from 'peculiarity/react';
 import { classNames as cn } from 'peculiarity';
 
 import Player from './Player';
-import OtherPlayers from './OtherPlayers';
+import Party from './Party';
 import { Link } from '..';
 import { toColon } from '../../utils';
 import styles from './styles.module.scss';
@@ -48,9 +48,9 @@ const RoomInformation = ({ className, playerId, room }) => {
           />
         </div>
       </div>
-      <div>
-        <Player player={player} room={room} />
-        <OtherPlayers players={party} />
+      <div className={styles.party}>
+        <Player className={styles.player} player={player} room={room} />
+        <Party players={party} />
       </div>
     </footer>
   );

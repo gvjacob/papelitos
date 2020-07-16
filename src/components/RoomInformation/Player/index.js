@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { classNames as cn } from 'peculiarity';
 import { useFormik } from 'formik';
 
 import { Avatar } from '../..';
@@ -20,7 +21,7 @@ const Player = ({ className, player, room }) => {
   };
 
   return (
-    <div className={styles.player}>
+    <div className={cn(styles.player, className)}>
       <Avatar className={styles.avatar} player={player} />
       <div className={styles.name}>
         <span>You are</span>
