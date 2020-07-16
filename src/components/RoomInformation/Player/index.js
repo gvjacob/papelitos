@@ -15,7 +15,9 @@ const Player = ({ className, player, room }) => {
   });
 
   const setName = (name) => {
-    wretch.url(`/player/${room.code}`).put({ id: player.id, name });
+    if (name) {
+      wretch.url(`/player/${room.code}`).put({ id: player.id, name });
+    }
   };
 
   return (

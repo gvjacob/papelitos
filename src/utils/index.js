@@ -37,3 +37,7 @@ export function getRandomly(values) {
   const { floor, random } = Math;
   return values[floor(random() * values.length)];
 }
+
+export function isExternalURL(url) {
+  return url.startsWith('http') || url.startsWith('www');
+}

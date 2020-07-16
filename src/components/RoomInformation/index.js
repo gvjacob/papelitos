@@ -4,6 +4,7 @@ import { classNames as cn } from 'peculiarity';
 
 import Player from './Player';
 import OtherPlayers from './OtherPlayers';
+import { Link } from '..';
 import { toColon } from '../../utils';
 import styles from './styles.module.scss';
 
@@ -31,7 +32,12 @@ const RoomInformation = ({ className, playerId, room }) => {
         </div>
 
         <div className={styles.labels}>
-          <Label label="Conference call" value={room.conferenceLink} />
+          <Label
+            label="Conference call"
+            value={
+              <Link href={room.conferenceLink}>{room.conferenceLink}</Link>
+            }
+          />
           <Label
             label="Duration per round"
             value={toColon(room.secondsPerRound)}
@@ -47,3 +53,4 @@ const RoomInformation = ({ className, playerId, room }) => {
 };
 
 export default RoomInformation;
+
