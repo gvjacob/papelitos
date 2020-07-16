@@ -39,14 +39,16 @@ export async function getServerSideProps(context) {
   const { id } = await wretch
     .url(`/player/${code}`)
     .post({ id: playerId })
-    .notFound(() => {})
+    .notFound(() => ({}))
     .json();
 
-  setCookie(context, 'id', id);
+  if (id) {
+    setCookie(context, 'id', id);
+  }
 
   return {
     props: {
-      playerId: id,
+      playerId: id || null,
       code,
     },
   };
