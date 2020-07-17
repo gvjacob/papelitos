@@ -1,5 +1,5 @@
 import React from 'react';
-import { partition } from 'lodash';
+import { partition, isEmpty } from 'lodash';
 import { If } from 'peculiarity/react';
 import { classNames as cn } from 'peculiarity';
 
@@ -36,12 +36,14 @@ const RoomInformation = ({ className, playerId, room }) => {
         </div>
 
         <div className={styles.labels}>
-          <Label
-            label="Conference call"
-            value={
-              <Link href={room.conferenceLink}>{room.conferenceLink}</Link>
-            }
-          />
+          {room.conferenceLink && (
+            <Label
+              label="Conference call"
+              value={
+                <Link href={room.conferenceLink}>{room.conferenceLink}</Link>
+              }
+            />
+          )}
           <Label
             label="Duration per round"
             value={toColon(room.secondsPerRound)}

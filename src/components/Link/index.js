@@ -5,6 +5,10 @@ import { isExternalURL } from '../../utils';
 import styles from './styles.module.scss';
 
 const Link = ({ href, ...props }) => {
+  if (!href) {
+    return null;
+  }
+
   return isExternalURL(href) ? (
     <a href={href} target="_blank" {...props} />
   ) : (

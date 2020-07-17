@@ -2,6 +2,23 @@
   @include flex(row, space-between);
   @include margin($sp-xs x);
   width: 60%;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: 'player start total';
+
+  .playerPapelitos {
+    grid-area: player;
+  }
+
+  .startRound {
+    grid-area: start;
+  }
+
+  .totalPapelitos {
+    grid-area: total;
+    justify-self: right;
+  }
 }
 
 .papelitoCount {

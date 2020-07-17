@@ -1,9 +1,27 @@
 .scoreboard {
-  @include flex(row, center, center);
+  @include flex;
   @include size(100%);
+
+  overflow-x: scroll;
 }
 
 .paperplane {
   @include size(25%);
+  @include margin(auto);
+  margin-top: $sp-sm;
   height: 100%;
+}
+
+.cards {
+  @include flex;
+  @include padding($sp-sm);
+
+  .player {
+    padding-right: $sp-xs;
+    border-right: 1px solid $hex-gray;
+  }
+
+  .card {
+    margin-left: $sp-xs;
+  }
 }

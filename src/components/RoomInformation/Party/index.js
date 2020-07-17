@@ -7,7 +7,7 @@ const Party = ({ className, players }) => {
   return (
     <div className={styles.party}>
       {players.map((player) => (
-        <Avatar className={styles.avatar} player={player} />
+        <Avatar className={styles.avatar} player={player} key={player.id} />
       ))}
     </div>
   );

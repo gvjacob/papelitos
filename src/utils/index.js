@@ -1,4 +1,4 @@
-import { camelCase, isEmpty } from 'lodash';
+import { camelCase, isEmpty, join } from 'lodash';
 import pms from 'pretty-ms';
 
 /**
@@ -40,4 +40,8 @@ export function getRandomly(values) {
 
 export function isExternalURL(url) {
   return url.startsWith('http') || url.startsWith('www');
+}
+
+export function commaJoin(values) {
+  return join(values, ', ');
 }
