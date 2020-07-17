@@ -1,0 +1,14 @@
+.modal {
+  @include round-border;
+  @include padding($sp-xs);
+
+  background-color: $hex-tertiary;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  border: 1px solid rgb(204, 204, 204);
+  outline: none;
+}

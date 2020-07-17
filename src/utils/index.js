@@ -30,12 +30,16 @@ export function toColon(seconds) {
   return pms(seconds * 1000, { colonNotation: true });
 }
 
+export function randomInt(max) {
+  const { floor, random } = Math;
+  return floor(random() * max);
+}
+
 /**
  * Get random value from given list
  */
 export function getRandomly(values) {
-  const { floor, random } = Math;
-  return values[floor(random() * values.length)];
+  return values[randomInt(values.length)];
 }
 
 export function isExternalURL(url) {
