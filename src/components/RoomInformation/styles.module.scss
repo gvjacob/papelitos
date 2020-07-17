@@ -1,0 +1,45 @@
+.roomInformation {
+  @include padding($sp-sm);
+  @include flex(row, space-between);
+
+  background-color: $hex-tertiary;
+  padding-bottom: $sp-xs;
+  width: 100%;
+}
+
+.information {
+  @include flex;
+}
+
+.code {
+  span {
+    @include body;
+    color: $hex-gray;
+  }
+
+  h2 {
+    @include heading;
+    margin-top: $sp-xxs;
+  }
+}
+
+.labels {
+  margin-left: $sp-md;
+
+  .label {
+    margin-bottom: $sp-xxs;
+
+    span:first-child {
+      color: $hex-gray;
+    }
+  }
+}
+
+.party {
+  @include flex;
+  align-items: center;
+
+  .player {
+    margin-right: $sp-xs;
+  }
+}

@@ -1,4 +1,10 @@
+export { default as Avatar } from './Avatar';
 export { default as Hero } from './Hero';
 export { default as RoomCreator } from './RoomCreator';
+export { default as Link } from './Link';
 export { default as Footer } from './Footer';
 export { default as Papelitos } from './Papelitos';
+export { default as PapelitoInput } from './PapelitoInput';
+export { default as PapelitoRound } from './PapelitoRound';
+export { default as RoomInformation } from './RoomInformation';
+export { default as Scoreboard } from './Scoreboard';

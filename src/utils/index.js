@@ -1,4 +1,5 @@
-import { camelCase, isEmpty } from 'lodash';
+import { camelCase, isEmpty, join } from 'lodash';
+import pms from 'pretty-ms';
 
 /**
  * Pulls the first five characters from
@@ -23,4 +24,28 @@ export function toSeconds(colonFormattedTime) {
   const seconds = toInteger(colonFormattedTime.substring(2));
 
   return minutes * 60 + seconds;
+}
+
+export function toColon(seconds) {
+  return pms(seconds * 1000, { colonNotation: true });
+}
+
+export function randomInt(max) {
+  const { floor, random } = Math;
+  return floor(random() * max);
+}
+
+/**
+ * Get random value from given list
+ */
+export function getRandomly(values) {
+  return values[randomInt(values.length)];
+}
+
+export function isExternalURL(url) {
+  return url.startsWith('http') || url.startsWith('www');
+}
+
+export function commaJoin(values) {
+  return join(values, ', ');
 }

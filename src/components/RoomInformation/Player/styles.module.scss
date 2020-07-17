@@ -1,0 +1,29 @@
+.player {
+  @include flex;
+}
+
+.avatar {
+  @include size(50px);
+  @include margin($sp-xxs);
+
+  border-radius: 100%;
+  align-self: center;
+}
+
+.name {
+  @include flex(column);
+
+  span {
+    @include padding(0 $sp-xxs);
+    color: $hex-gray;
+  }
+
+  input {
+    @include heading;
+    @include padding(0 $sp-xxs);
+
+    padding-bottom: -20px;
+    margin-top: $sp-xxs;
+    width: $sp-xl;
+  }
+}

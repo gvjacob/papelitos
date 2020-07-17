@@ -4,11 +4,15 @@
 */
 
 button {
+  background-color: transparent;
+  border: none;
   cursor: pointer;
+  outline: none;
 }
 
 input {
   border: none;
+  outline: none;
 }
 
 html,

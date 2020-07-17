@@ -1,8 +1,12 @@
 .room {
-  @include flex(column, center, center);
+  @include flex(column, flex-start, center);
+  min-height: 100vh;
 }
 
 .headline {
   @include heading(4);
   @include margin($sp-sm);
+
+  margin-bottom: $sp-md;
 }
+
