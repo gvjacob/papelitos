@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { get } from 'lodash';
 import Modal from 'react-modal';
 import { useTimer } from 'use-timer';
 
@@ -50,13 +51,19 @@ const RoundModal = ({
 
   const onNo = nextIndex;
 
+  const currentPapelito = get(papelitos, [index, 'papelito']);
+
+  if (!currentPapelito) {
+    resetIndex();
+  }
+
   return (
     <Modal className={styles.modal} isOpen={isOpen} onRequestClose={onClose}>
       <div className={styles.timer}>{toColon(time)}</div>
       <button className={styles.close} onClick={onClose}>
         <i className="fas fa-times" />
       </button>
-      <h2>{papelitos[index].papelito}</h2>
+      <h2>{currentPapelito}</h2>
       <p>Guessed correctly?</p>
       <div className={styles.actions}>
         <button onClick={onYes}>Yes</button>
