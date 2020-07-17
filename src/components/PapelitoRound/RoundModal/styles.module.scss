@@ -1,6 +1,9 @@
 .modal {
   @include round-border;
   @include padding($sp-xs);
+  @include flex(column);
+  position: relative;
+  min-width: 400px;
 
   background-color: $hex-tertiary;
 
@@ -11,4 +14,56 @@
 
   border: 1px solid rgb(204, 204, 204);
   outline: none;
+
+  h2 {
+    @include heading(4);
+    @include margin($sp-xs $sp-xs $sp-sm);
+
+    text-align: center;
+    border-bottom: 1px solid $hex-gray;
+    border-style: dashed;
+  }
+
+  p {
+    text-align: center;
+  }
+}
+
+.close {
+  position: absolute;
+  top: $sp-xs;
+  right: $sp-xs;
+  color: $hex-gray;
+  @include body;
+}
+
+.timer {
+  @include size($sp-md);
+  @include flex(row, center, center);
+  align-self: center;
+  border-radius: 100%;
+  background-color: $hex-primary;
+  color: $hex-tertiary;
+  font-weight: bold;
+  margin-top: -$sp-sm;
+}
+
+.actions {
+  @include flex(row, space-between);
+  margin-top: $sp-xs;
+
+  button {
+    @include body(3);
+    font-weight: bold;
+    width: 100%;
+
+    &:first-child {
+      color: $hex-green;
+      border-right: 1px solid $hex-gray;
+    }
+
+    &:last-child {
+      color: $hex-red;
+    }
+  }
 }

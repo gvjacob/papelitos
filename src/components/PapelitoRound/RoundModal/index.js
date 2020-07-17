@@ -52,15 +52,16 @@ const RoundModal = ({
 
   return (
     <Modal className={styles.modal} isOpen={isOpen} onRequestClose={onClose}>
-      <button onClick={onClose}>
+      <div className={styles.timer}>{toColon(time)}</div>
+      <button className={styles.close} onClick={onClose}>
         <i className="fas fa-times" />
       </button>
-
       <h2>{papelitos[index].papelito}</h2>
-      <div>{toColon(time)}</div>
       <p>Guessed correctly?</p>
-      <button onClick={onYes}>Yes</button>
-      <button onClick={onNo}>No</button>
+      <div className={styles.actions}>
+        <button onClick={onYes}>Yes</button>
+        <button onClick={onNo}>No</button>
+      </div>
     </Modal>
   );
 };
