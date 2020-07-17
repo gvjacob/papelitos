@@ -16,7 +16,7 @@ const PapelitoCount = ({ className, papelitos, text, neutral }) => {
         <div className={cn(styles.count, neutral && styles.neutral)}>
           {length}
         </div>{' '}
-        {text}
+        <p>{text}</p>
       </div>
     </If>
   );
@@ -35,18 +35,10 @@ const PapelitoRound = ({ className, room, playerId }) => {
 
   return (
     <section className={styles.papelitoRound}>
-      <PapelitoCount
-        className={styles.playerPapelitos}
-        papelitos={playerPapelitos}
-        text={playerPapelitosString}
-        neutral
-      />
-      <button className={styles.startRound}>Start round</button>
-      <PapelitoCount
-        className={styles.totalPapelitos}
-        papelitos={availablePapelitos}
-        text={'total papelitos'}
-      />
+      <If value={availablePapelitos.length}>
+        <button className={styles.startRound}>Start round</button>
+      </If>
+      <PapelitoCount papelitos={availablePapelitos} text={'total papelitos'} />
     </section>
   );
 };
